@@ -56,6 +56,9 @@ Plugin 'marijnh/tern_for_vim'
 " EasyMotion
 Plugin 'easymotion/vim-easymotion'
 
+" Haml
+Plugin 'tpope/vim-haml'
+
 "end plugins
 filetype plugin indent on
 
