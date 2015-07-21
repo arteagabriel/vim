@@ -1,12 +1,12 @@
 set t_Co=256
 syntax enable
 set number
-" colorscheme monokai 
-" colorscheme hybrid
+"colorscheme monokai 
+"colorscheme hybrid
 colorscheme jellybeans
-set relativenumber
-set smartindent
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set relativenumber
+set autoindent
 
 "vundle setup
 set nocompatible
@@ -71,17 +71,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_html_tidy_ignore_errors = ['trimming empty <']
 
-" Function to switch between relative and absolute line numbers
-" function! NumberToggle()
-"     if(&relativenumber == 1)
-"         set number
-"     else
-"         set relativenumber
-"     endif
-" endfunc
-
-" nnoremap <C-n> :call NumberToggle()<cr>
-
-" :au FocusLost * :set number
-" :au FocusGained * :set relativenumber
+" End Syntastic config
