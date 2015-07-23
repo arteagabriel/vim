@@ -1,12 +1,16 @@
-set t_Co=256
+"set t_Co=256
 syntax enable
 set number
 "colorscheme monokai 
 "colorscheme hybrid
 colorscheme jellybeans
+"colorscheme solarized
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set relativenumber
 set autoindent
+
+" Always show tabs
+set showtabline=2
 
 "vundle setup
 set nocompatible
@@ -74,3 +78,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_ignore_errors = ['trimming empty <']
 
 " End Syntastic config
+
+" Change font size of MacVim
+if has("gui_macvim") || has("gui_vimr")
+   set guifont=Monaco:h12
+endif
