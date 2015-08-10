@@ -1,4 +1,4 @@
-"vundle setup
+"Togglevundle setup
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
@@ -68,13 +68,27 @@ set number
 "colorscheme hybrid
 colorscheme jellybeans
 "colorscheme solarized
-set tabstop=4 softtabstop=4 expandtab shiftwidth=4 "smarttab
-" set tabstop=4 shiftwidth=4 expandtab
+set tabstop=4 softtabstop=4 expandtab shiftwidth=4
+set textwidth=80
 set relativenumber
+set cursorline
+set showcmd
 set autoindent
+set incsearch
+set hlsearch
 let mapleader = ","
 set foldmethod=indent
+set mouse=a
+
 nnoremap <Space> za
+nnoremap <silent> <Leader>w :w<CR>
+nnoremap <silent> <Leader>nt :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>tb :Tagbar<CR>
+nnoremap <silent> <Leader>cp :CtrlP<CR>
+nnoremap <silent> <C-h> <C-w><Left><CR>
+nnoremap <silent> <C-j> <C-w><Down><CR>
+nnoremap <silent> <C-k> <C-w><Up><CR>
+nnoremap <silent> <C-l> <C-w><Right><CR>
 
 " move swap files to a specific location
 set backupdir=~/.vim/backup//
@@ -105,7 +119,7 @@ if !exists('g:airline_symbols')
       let g:airline_symbols = {}
 endif
 " End Airline config
-"
+
 " Change font and size of MacVim
 if has("gui_macvim") || has("gui_vimr")
    set guifont=InputMono-Regular:h12
