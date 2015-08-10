@@ -1,7 +1,7 @@
 "vundle setup
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
 "insert plugins here
@@ -41,18 +41,25 @@ Plugin 'tpope/vim-fugitive'
 " delimitMate
 Plugin 'Raimondi/delimitMate'
 
-" Tern for Vim
-Plugin 'marijnh/tern_for_vim'
-
 " EasyMotion
 Plugin 'easymotion/vim-easymotion'
 
 " Haml
 Plugin 'tpope/vim-haml'
 
+" Ag
+Plugin 'rking/ag.vim'
+
+" Tabular
+Plugin 'godlygeek/tabular'
+
+" repeat.vim
+Plugin 'tpope/vim-repeat'
+
 "end plugins
 call vundle#end()
 filetype plugin indent on
+"end vundle setup
 
 "set t_Co=256
 syntax enable
@@ -61,11 +68,18 @@ set number
 "colorscheme hybrid
 colorscheme jellybeans
 "colorscheme solarized
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=4 softtabstop=4 expandtab shiftwidth=4 "smarttab
+" set tabstop=4 shiftwidth=4 expandtab
 set relativenumber
 set autoindent
 let mapleader = ","
+set foldmethod=indent
 nnoremap <Space> za
+
+" move swap files to a specific location
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 
 " Always show tabs
 set showtabline=2
@@ -86,9 +100,10 @@ let g:syntastic_html_tidy_ignore_errors = ["trimming empty <", "'<' + '/' + lett
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
-" if !exists('g:airline_symbols')
-"       let g:airline_symbols = {}
-" endif
+
+if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+endif
 " End Airline config
 "
 " Change font and size of MacVim
