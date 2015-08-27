@@ -35,7 +35,6 @@ Plugin 'scrooloose/syntastic'
 " See github repo page to finish installation
 Plugin 'Valloric/YouCompleteMe'
 
-" vim-fugitive
 Plugin 'tpope/vim-fugitive'
 
 " delimitMate
@@ -66,9 +65,10 @@ syntax enable
 set number
 "colorscheme monokai 
 "colorscheme hybrid
-colorscheme jellybeans
-"colorscheme solarized
+"colorscheme jellybeans
+colorscheme solarized
 set tabstop=4 softtabstop=4 expandtab shiftwidth=4
+set background=dark
 set textwidth=80
 set relativenumber
 set cursorline
@@ -82,13 +82,20 @@ set mouse=a
 
 nnoremap <Space> za
 nnoremap <silent> <Leader>w :w<CR>
+nnoremap <silent> <Leader>q :q<CR>
 nnoremap <silent> <Leader>nt :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>tb :Tagbar<CR>
 nnoremap <silent> <Leader>cp :CtrlP<CR>
+nnoremap <silent> <Leader>nh :noh<CR>
 nnoremap <silent> <C-h> <C-w><Left><CR>
 nnoremap <silent> <C-j> <C-w><Down><CR>
 nnoremap <silent> <C-k> <C-w><Up><CR>
 nnoremap <silent> <C-l> <C-w><Right><CR>
+nnoremap <silent> <Leader>g :Git
+nnoremap <silent> <Leader>gw :Gwrite<CR>
+nnoremap <silent> <Leader>gs :Gstatus<CR>
+nnoremap <silent> <Leader>gc :Gcommit<CR>
+nnoremap <silent> <Leader>gb :Gblame<CR>
 
 " move swap files to a specific location
 set backupdir=~/.vim/backup//
@@ -103,8 +110,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_ignore_errors = ["trimming empty <", "'<' + '/' + letter not allowed here", "missing </script>"]
