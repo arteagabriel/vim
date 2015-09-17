@@ -35,6 +35,7 @@ Plugin 'scrooloose/syntastic'
 " See github repo page to finish installation
 Plugin 'Valloric/YouCompleteMe'
 
+" vim-fugitive
 Plugin 'tpope/vim-fugitive'
 
 " delimitMate
@@ -69,7 +70,7 @@ set number
 colorscheme solarized
 set tabstop=4 softtabstop=4 expandtab shiftwidth=4
 set background=dark
-set textwidth=80
+"set textwidth=80
 set relativenumber
 set cursorline
 set showcmd
