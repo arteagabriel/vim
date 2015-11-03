@@ -4,6 +4,9 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
+" To fix Python YCM crash
+let $PATH = '/usr/local/bin:'.$PATH
+
 "insert plugins here
 Plugin 'gmarik/Vundle.vim'
 
@@ -68,7 +71,7 @@ set number
 "colorscheme hybrid
 "colorscheme jellybeans
 colorscheme solarized
-set tabstop=4 softtabstop=4 expandtab shiftwidth=4
+set tabstop=3 softtabstop=3 expandtab shiftwidth=3
 set background=dark
 "set textwidth=80
 set relativenumber
@@ -111,6 +114,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" Uncomment 2 lines below if you want list of syntastic errors
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
