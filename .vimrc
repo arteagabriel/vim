@@ -26,7 +26,9 @@ Plugin 'tpope/vim-commentary'
 Plugin 'flazz/vim-colorschemes'
 
 " Airline 
-Plugin 'bling/vim-airline'
+" Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " tagbar
 Plugin 'majutsushi/tagbar'
@@ -59,12 +61,15 @@ Plugin 'godlygeek/tabular'
 " repeat.vim
 Plugin 'tpope/vim-repeat'
 
+"Jinja/nunjucks syntax highlighting
+Plugin 'lepture/vim-jinja'
+
 "end plugins
 call vundle#end()
 filetype plugin indent on
 "end vundle setup
 
-"set t_Co=256
+set t_Co=256
 syntax enable
 set number
 "colorscheme monokai 
@@ -136,3 +141,6 @@ endif
 if has("gui_macvim") || has("gui_vimr")
    set guifont=InputMono-Regular:h12
 endif
+
+" Make sure Ninja extensions are highlighted
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.nunjucks set ft=jinja
