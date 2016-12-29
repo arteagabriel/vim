@@ -64,6 +64,21 @@ Plugin 'tpope/vim-repeat'
 "Jinja/nunjucks syntax highlighting
 Plugin 'lepture/vim-jinja'
 
+" vim-javascript
+Plugin 'pangloss/vim-javascript'
+
+" vim git-gutter
+Plugin 'airblade/vim-gitgutter'
+
+" Emmet.vim
+Plugin 'mattn/emmet-vim'
+
+" Indent Guides
+Plugin 'nathanaelkane/vim-indent-guides'
+
+" vim-jsx
+Plugin 'mxw/vim-jsx'
+
 "end plugins
 call vundle#end()
 filetype plugin indent on
@@ -105,6 +120,7 @@ nnoremap <silent> <Leader>gw :Gwrite<CR>
 nnoremap <silent> <Leader>gs :Gstatus<CR>
 nnoremap <silent> <Leader>gc :Gcommit<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
+nnoremap <silent> <Leader>tn :tabnew
 
 " move swap files to a specific location
 set backupdir=~/.vim/backup//
@@ -118,6 +134,13 @@ set showtabline=2
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+" vim-jax config
+let g:jsx_ext_required = 0 " allow JSX in normal JS file types
+
+" indent guide config
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
 
 " Uncomment 2 lines below if you want list of syntastic errors
 "let g:syntastic_always_populate_loc_list = 1
