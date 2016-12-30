@@ -25,12 +25,13 @@ Plugin 'tpope/vim-commentary'
 " vim-colorschemes
 Plugin 'flazz/vim-colorschemes'
 
-" Airline 
+" Airline
 " Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " tagbar
+" need to install ctags for it to work on OSX
 Plugin 'majutsushi/tagbar'
 
 " Syntastic
@@ -79,6 +80,12 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " vim-jsx
 Plugin 'mxw/vim-jsx'
 
+" vim-exchange
+Plugin 'tommcdo/vim-exchange'
+
+" vim-multiple-cursors
+Plugin 'terryma/vim-multiple-cursors'
+
 "end plugins
 call vundle#end()
 filetype plugin indent on
@@ -87,13 +94,10 @@ filetype plugin indent on
 set t_Co=256
 syntax enable
 set number
-"colorscheme monokai 
-"colorscheme hybrid
-"colorscheme jellybeans
 colorscheme solarized
 set tabstop=3 softtabstop=3 expandtab shiftwidth=3
 set background=dark
-"set textwidth=80
+set textwidth=80
 set relativenumber
 set cursorline
 set showcmd
@@ -121,6 +125,9 @@ nnoremap <silent> <Leader>gs :Gstatus<CR>
 nnoremap <silent> <Leader>gc :Gcommit<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>tn :tabnew
+
+" remove trailing whitespace on write
+autocmd BufWritePre * %s/\s\+$//e
 
 " move swap files to a specific location
 set backupdir=~/.vim/backup//
@@ -167,4 +174,4 @@ if has("gui_macvim") || has("gui_vimr")
 endif
 
 " Make sure Ninja extensions are highlighted
-au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.nunjucks set ft=jinja
+au BufNewFile,BufRead *.nunjucks,*.njk set ft=jinja
