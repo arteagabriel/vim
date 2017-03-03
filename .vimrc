@@ -125,6 +125,15 @@ nnoremap <silent> <Leader>gs :Gstatus<CR>
 nnoremap <silent> <Leader>gc :Gcommit<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>tn :tabnew
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+
+nmap <C-v> :vertical resize +5<CR>
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+imap jj <esc>
 
 " remove trailing whitespace on write
 autocmd BufWritePre * %s/\s\+$//e
@@ -174,4 +183,4 @@ if has("gui_macvim") || has("gui_vimr")
 endif
 
 " Make sure Ninja extensions are highlighted
-au BufNewFile,BufRead *.nunjucks,*.njk set ft=jinja
+au BufNewFile,BufRead *.html,*.nunjucks,*.njk set ft=jinja
