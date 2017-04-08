@@ -86,6 +86,9 @@ Plugin 'tommcdo/vim-exchange'
 " vim-multiple-cursors
 Plugin 'terryma/vim-multiple-cursors'
 
+" rust.vim
+Plugin 'rust-lang/rust.vim'
+
 "end plugins
 call vundle#end()
 filetype plugin indent on
@@ -96,7 +99,7 @@ syntax enable
 set number
 colorscheme solarized
 set tabstop=3 softtabstop=3 expandtab shiftwidth=3
-set background=dark
+set background=light
 set textwidth=80
 set relativenumber
 set cursorline
@@ -183,4 +186,11 @@ if has("gui_macvim") || has("gui_vimr")
 endif
 
 " Make sure Ninja extensions are highlighted
-au BufNewFile,BufRead *.html,*.nunjucks,*.njk set ft=jinja
+au BufNewFile,BufRead *.blade.php,*.html,*.htm,*.nunjucks,*.njk set ft=jinja
+
+autocmd BufNewFile,BufRead *.html set textwidth=0 wrapmargin=0 tabstop=2 softtabstop=2 shiftwidth=2
+autocmd BufNewFile,BufRead *.css set textwidth=0 wrapmargin=0 tabstop=2 softtabstop=2 shiftwidth=2
+autocmd BufNewFile,BufRead *.scss set textwidth=0 wrapmargin=0 tabstop=2 softtabstop=2 shiftwidth=2
+
+" set working directory to current file
+autocmd BufEnter * lcd %:p:h
