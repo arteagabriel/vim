@@ -89,6 +89,9 @@ Plugin 'terryma/vim-multiple-cursors'
 " rust.vim
 Plugin 'rust-lang/rust.vim'
 
+" Laravel Blade
+Plugin 'jwalton512/vim-blade'
+
 "end plugins
 call vundle#end()
 filetype plugin indent on
@@ -99,7 +102,7 @@ syntax enable
 set number
 colorscheme solarized
 set tabstop=3 softtabstop=3 expandtab shiftwidth=3
-set background=light
+set background=dark
 set textwidth=80
 set relativenumber
 set cursorline
@@ -130,7 +133,7 @@ nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>tn :tabnew
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
-nmap <C-v> :vertical resize +5<CR>
+" nmap <C-v> :vertical resize +5<CR>
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
@@ -182,7 +185,8 @@ endif
 
 " Change font and size of MacVim
 if has("gui_macvim") || has("gui_vimr")
-   set guifont=InputMono-Regular:h12
+   " set guifont=InputMono-Regular:h12
+   set guifont=Roboto\ Mono\ for\ Powerline:h14
 endif
 
 " Make sure Ninja extensions are highlighted
