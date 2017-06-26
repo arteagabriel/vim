@@ -101,7 +101,7 @@ set t_Co=256
 syntax enable
 set number
 colorscheme solarized
-set tabstop=3 softtabstop=3 expandtab shiftwidth=3
+set tabstop=4 softtabstop=4 expandtab shiftwidth=4
 set background=dark
 set textwidth=80
 set relativenumber
@@ -185,8 +185,8 @@ endif
 
 " Change font and size of MacVim
 if has("gui_macvim") || has("gui_vimr")
-   " set guifont=InputMono-Regular:h12
-   set guifont=Roboto\ Mono\ for\ Powerline:h14
+   set guifont=InputMono-Regular:h12
+   " set guifont=Roboto\ Mono\ for\ Powerline:h14
 endif
 
 " Make sure Ninja extensions are highlighted
