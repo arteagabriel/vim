@@ -92,6 +92,9 @@ Plugin 'rust-lang/rust.vim'
 " Laravel Blade
 Plugin 'jwalton512/vim-blade'
 
+" Vue.js
+Plugin 'posva/vim-vue'
+
 "end plugins
 call vundle#end()
 filetype plugin indent on
@@ -195,6 +198,8 @@ au BufNewFile,BufRead *.blade.php,*.html,*.htm,*.nunjucks,*.njk set ft=jinja
 autocmd BufNewFile,BufRead *.html set textwidth=0 wrapmargin=0 tabstop=2 softtabstop=2 shiftwidth=2
 autocmd BufNewFile,BufRead *.css set textwidth=0 wrapmargin=0 tabstop=2 softtabstop=2 shiftwidth=2
 autocmd BufNewFile,BufRead *.scss set textwidth=0 wrapmargin=0 tabstop=2 softtabstop=2 shiftwidth=2
+
+autocmd FileType vue syntax sync fromstart
 
 " set working directory to current file
 autocmd BufEnter * lcd %:p:h
