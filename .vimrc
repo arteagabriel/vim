@@ -136,6 +136,10 @@ nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>tn :tabnew
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
+" inoremap {<CR> {<CR>}<ESC>O<BS><Tab>
+" inoremap (<CR> (<CR>)<ESC>O<BS><Tab>
+" inoremap [<CR> [<CR>]<ESC>O<BS><Tab>
+
 " nmap <C-v> :vertical resize +5<CR>
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
@@ -176,6 +180,10 @@ let g:syntastic_html_tidy_ignore_errors = ["trimming empty <", "'<' + '/' + lett
 let g:syntastic_javascript_checkers = ['eslint']
 " End Syntastic config
 
+" delimitMate config
+let delimitMate_expand_cr=1
+" End delimitMate config
+
 " Airline config
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -188,8 +196,10 @@ endif
 
 " Change font and size of MacVim
 if has("gui_macvim") || has("gui_vimr")
-   set guifont=InputMono-Regular:h12
+   " set guifont=InputMono-Regular:h12
    " set guifont=Roboto\ Mono\ for\ Powerline:h14
+   set macligatures
+   set guifont=Fira\ Code:h14
 endif
 
 " Make sure Ninja extensions are highlighted
@@ -198,6 +208,7 @@ au BufNewFile,BufRead *.blade.php,*.html,*.htm,*.nunjucks,*.njk set ft=jinja
 autocmd BufNewFile,BufRead *.html set textwidth=0 wrapmargin=0 tabstop=2 softtabstop=2 shiftwidth=2
 autocmd BufNewFile,BufRead *.css set textwidth=0 wrapmargin=0 tabstop=2 softtabstop=2 shiftwidth=2
 autocmd BufNewFile,BufRead *.scss set textwidth=0 wrapmargin=0 tabstop=2 softtabstop=2 shiftwidth=2
+autocmd BufNewFile,BufRead *.js set textwidth=0 wrapmargin=0 tabstop=2 softtabstop=2 shiftwidth=2
 
 autocmd FileType vue syntax sync fromstart
 
