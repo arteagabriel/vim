@@ -98,6 +98,18 @@ Plugin 'posva/vim-vue'
 " Solidity
 Plugin 'tomlion/vim-solidity'
 
+" Ruby endwise
+Plugin 'tpope/vim-endwise'
+
+" Ruby
+Plugin 'vim-ruby/vim-ruby'
+
+" Ruby on Rails
+Plugin 'tpope/vim-rails'
+
+" Elixir
+Plugin 'elixir-editors/vim-elixir'
+
 "end plugins
 call vundle#end()
 filetype plugin indent on
@@ -207,6 +219,15 @@ endif
 
 " Make sure Ninja extensions are highlighted
 au BufNewFile,BufRead *.blade.php,*.html,*.htm,*.nunjucks,*.njk set ft=jinja
+
+" Define some single Blade directives. This variable is used for highlighting only.
+let g:blade_custom_directives = ['datetime', 'javascript']
+
+" Define pairs of Blade directives. This variable is used for highlighting and indentation.
+let g:blade_custom_directives_pairs = {
+      \   'markdown': 'endmarkdown',
+      \   'cache': 'endcache',
+      \ }
 
 " autocmd BufNewFile,BufRead *.html set textwidth=0 wrapmargin=0 tabstop=2 softtabstop=2 shiftwidth=2
 " autocmd BufNewFile,BufRead *.css set textwidth=0 wrapmargin=0 tabstop=2 softtabstop=2 shiftwidth=2
