@@ -5,16 +5,17 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
 " To fix Python YCM crash
-let $PATH = '/usr/local/bin:'.$PATH
+" let $PATH = '/usr/local/bin:'.$PATH
 
 "insert plugins here
 Plugin 'gmarik/Vundle.vim'
 
 " CtrlP
-Plugin 'kien/ctrlp.vim'
+" Plugin 'kien/ctrlp.vim'
 
 " NERD Tree
 Plugin 'scrooloose/nerdtree'
+Plugin 'unkiwii/vim-nerdtree-sync'
 
 " Surround.vim
 Plugin 'tpope/vim-surround'
@@ -30,12 +31,15 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+" Gruvbox theme for vim+airline
+Plugin 'morhetz/gruvbox'
+
 " tagbar
 " need to install ctags for it to work on OSX
-Plugin 'majutsushi/tagbar'
+" Plugin 'majutsushi/tagbar'
 
 " Syntastic
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 
 " YouCompleteMe
 " See github repo page to finish installation
@@ -54,10 +58,10 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-haml'
 
 " Ag
-Plugin 'rking/ag.vim'
+" Plugin 'rking/ag.vim'
 
 " Tabular
-Plugin 'godlygeek/tabular'
+" Plugin 'godlygeek/tabular'
 
 " repeat.vim
 Plugin 'tpope/vim-repeat'
@@ -75,19 +79,22 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'mattn/emmet-vim'
 
 " Indent Guides
-Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'nathanaelkane/vim-indent-guides'
 
 " vim-jsx
-Plugin 'mxw/vim-jsx'
+Plugin 'neoclide/vim-jsx-improve'
+
+" yasj.vim
+" Plugin 'othree/yajs.vim'
 
 " vim-exchange
-Plugin 'tommcdo/vim-exchange'
+" Plugin 'tommcdo/vim-exchange'
 
 " vim-multiple-cursors
-Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'terryma/vim-multiple-cursors'
 
 " rust.vim
-Plugin 'rust-lang/rust.vim'
+" Plugin 'rust-lang/rust.vim'
 
 " Laravel Blade
 Plugin 'jwalton512/vim-blade'
@@ -99,16 +106,58 @@ Plugin 'posva/vim-vue'
 Plugin 'tomlion/vim-solidity'
 
 " Ruby endwise
-Plugin 'tpope/vim-endwise'
+" Plugin 'tpope/vim-endwise'
 
 " Ruby
-Plugin 'vim-ruby/vim-ruby'
+" Plugin 'vim-ruby/vim-ruby'
 
 " Ruby on Rails
-Plugin 'tpope/vim-rails'
+" Plugin 'tpope/vim-rails'
 
 " Elixir
 Plugin 'elixir-editors/vim-elixir'
+
+" closetag
+Plugin 'alvan/vim-closetag'
+
+" markdown
+Plugin 'gabrielelana/vim-markdown'
+
+" css-color
+Plugin 'ap/vim-css-color'
+
+" vim-sneak
+Plugin 'justinmk/vim-sneak'
+
+" vim-graphql
+Plugin 'jparise/vim-graphql'
+
+" vim-css3-syntax
+Plugin 'hail2u/vim-css3-syntax'
+
+" sensible defaults
+Plugin 'Aldlevine/nerdtree-git-plugin'
+
+" styled components
+Plugin 'styled-components/vim-styled-components', { 'branch': 'main' }
+
+" auto close parens etc
+Plugin 'jiangmiao/auto-pairs'
+
+" typescript support
+Plugin 'leafgarland/typescript-vim'
+
+" jsx typescript support
+Plugin 'peitalin/vim-jsx-typescript'
+
+" ale linting
+Plugin 'dense-analysis/ale'
+
+" tmux navigator for vim/tmux splits
+Plugin 'christoomey/vim-tmux-navigator'
+
+" editor config support
+Plugin 'editorconfig/editorconfig-vim'
 
 "end plugins
 call vundle#end()
@@ -118,8 +167,8 @@ filetype plugin indent on
 set t_Co=256
 syntax enable
 set number
-colorscheme solarized
-set tabstop=4 softtabstop=4 expandtab shiftwidth=4
+colorscheme gruvbox
+set tabstop=4 softtabstop=2 expandtab shiftwidth=2
 set background=dark
 set textwidth=80
 set relativenumber
@@ -129,7 +178,7 @@ set autoindent
 set incsearch
 set hlsearch
 let mapleader = ","
-set foldmethod=indent
+" set foldmethod=indent
 set mouse=a
 
 nnoremap <Space> za
@@ -166,43 +215,55 @@ imap jj <esc>
 " remove trailing whitespace on write
 autocmd BufWritePre * %s/\s\+$//e
 
+set noswapfile
+set nobackup
+set nowb
+
+" store longer history
+set history=100
+
 " move swap files to a specific location
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
+" set backupdir=~/.vim/backup//
+" set directory=~/.vim/swap//
+set undodir=~/.vim/undo
 
 " Always show tabs
-set showtabline=2
+" set showtabline=2
+
+" open new splits to the right and the bottom
+set splitbelow
+set splitright
 
 " Syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 " vim-jax config
 let g:jsx_ext_required = 0 " allow JSX in normal JS file types
 
 " indent guide config
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
+" let g:indent_guides_start_level = 2
+" let g:indent_guides_guide_size = 1
 
 " Uncomment 2 lines below if you want list of syntastic errors
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_html_tidy_ignore_errors = ["trimming empty <", "'<' + '/' + letter not allowed here", "missing </script>"]
-let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_html_tidy_ignore_errors = ["trimming empty <", "'<' + '/' + letter not allowed here", "missing </script>"]
+" let g:syntastic_javascript_checkers = ['eslint']
 " End Syntastic config
 
 " delimitMate config
-let delimitMate_expand_cr=1
+" let delimitMate_expand_cr=1
 " End delimitMate config
 
 " Airline config
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
+let g:airline_theme='gruvbox'
 
 if !exists('g:airline_symbols')
       let g:airline_symbols = {}
@@ -229,12 +290,57 @@ let g:blade_custom_directives_pairs = {
       \   'cache': 'endcache',
       \ }
 
-" autocmd BufNewFile,BufRead *.html set textwidth=0 wrapmargin=0 tabstop=2 softtabstop=2 shiftwidth=2
-" autocmd BufNewFile,BufRead *.css set textwidth=0 wrapmargin=0 tabstop=2 softtabstop=2 shiftwidth=2
-" autocmd BufNewFile,BufRead *.scss set textwidth=0 wrapmargin=0 tabstop=2 softtabstop=2 shiftwidth=2
-" autocmd BufNewFile,BufRead *.js set textwidth=0 wrapmargin=0 tabstop=2 softtabstop=2 shiftwidth=2
+" vim-closetag config
+" let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js, *.jsx,*.ts, *.tsx'
+
+" vim-sneak config
+let g:sneak#s_next = 1 " Jump to next match when pressing s again
+let g:sneak#label = 1  " Use label mode, similar to easymotion
+
+" Configure NerdTree
+" :set mouse=a
+let g:NERDTreeMouseMode=3 " Use NERDTree with a mouse
+" nnoremap <c-\> :edit .<cr>
+let g:NERDTreeGitStatusNodeColorization=1 " Enable git status colorisation a la Atom
+let g:NERDTreeShowHidden=1 " Show dotfiles by default
+let loaded_netrwPlugin=1 " Disable netrw since we're going to hijack it with NERDTree anyway
+let NERDTreeRespectWildIgnore=1 " Respect wildignore
+let g:NERDTreeHijackNetrw = 1 " Use the split explorer model, hijack netrw
+let g:NERDTreeMinimalUI=1 " Hide 'Press ? for help' prompt
+
+" Configure vim-nerdtree-sync
+let g:nerdtree_sync_cursorline=1 " Enable syncing of active file to nerdtree
+
+" Configure JavaScript highlighting
+" let g:javascript_plugin_jsdoc=1
+" let g:javascript_plugin_flow=1
+
+" Configure ale (linting)
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '💩'
+let g:ale_sign_warning = '⚠️'
+" let g:ale_linters = {
+"       \'javascript': ['eslint']
+"       \} " , 'eslint'
+let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_javascript_eslint_suppress_missing_config = 1
+let g:ale_javascript_eslint_suppress_eslintignore = 1
+let g:ale_javascript_eslint_use_global = 0
+let g:ale_fixers = {
+      \'javascript': ['prettier']
+      \}
+" let g:ale_completion_enabled = 1
+
+" use js linting for .vue files
+let b:ale_linter_aliases = ['javascript', 'vue']
+
+" Markdown
+let g:markdown_enable_spell_checking = 0
+let g:markdown_include_jekyll_support = 0
 
 autocmd FileType vue syntax sync fromstart
 
 " set working directory to current file
 autocmd BufEnter * lcd %:p:h
+
+let g:deoplete#enable_at_startup = 1
